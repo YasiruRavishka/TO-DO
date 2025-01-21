@@ -25,7 +25,22 @@ class MyApp extends StatelessWidget {
         brightness: kDarkTheme,
         primarySwatch: kDarkPrimarySwatch,
       ),
-      home: const HomePage(),
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case '/':
+            return MaterialPageRoute(
+              builder: (context) => const HomePage(),
+            );
+          case '/profile':
+            return MaterialPageRoute(
+              builder: (context) => const ProfilePage(),
+            );
+          default:
+            return MaterialPageRoute(
+              builder: (context) => const HomePage(),
+            );
+        }
+      },
     );
   }
 }
